@@ -12,15 +12,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #F7F5F0;
-      --bg-card: #FFFFFF;
-      --text: #1A1814;
-      --text-muted: #6B6860;
-      --accent: #2A5C45;
-      --accent-light: #EAF3EE;
-      --accent-mid: #C4DDD2;
-      --border: rgba(26,24,20,0.12);
-      --border-strong: rgba(26,24,20,0.22);
+      --bg: #080510;
+      --bg-card: rgba(255,255,255,0.07);
+      --text: #FFFFFF;
+      --text-muted: #AAAAAA;
+      --accent: #AA32FF;
+      --accent-light: rgba(170,50,255,0.15);
+      --accent-mid: rgba(170,50,255,0.35);
+      --border: rgba(255,255,255,0.1);
+      --border-strong: rgba(255,255,255,0.2);
       --radius: 14px;
     }
 
@@ -28,7 +28,11 @@
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(180deg, rgba(170,50,255,0.4), transparent),
+        linear-gradient(315deg, rgba(255,50,120,0.25), transparent);
+      background-attachment: fixed;
       color: var(--text);
       font-size: 16px;
       line-height: 1.7;
@@ -42,7 +46,9 @@
       justify-content: space-between;
       padding: 1.25rem 2.5rem;
       border-bottom: 1px solid var(--border);
-      background: var(--bg);
+      background: rgba(8,5,16,0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
       z-index: 10;
@@ -108,6 +114,8 @@
       display: flex;
       flex-direction: column;
       gap: 2.5rem;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
 
     .policy-section h2 {

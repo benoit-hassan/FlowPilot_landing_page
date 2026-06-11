@@ -12,15 +12,16 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #F7F5F0;
-      --bg-card: #FFFFFF;
-      --text: #1A1814;
-      --text-muted: #6B6860;
-      --accent: #2A5C45;
-      --accent-light: #EAF3EE;
-      --accent-mid: #C4DDD2;
-      --border: rgba(26,24,20,0.12);
-      --border-strong: rgba(26,24,20,0.22);
+      --bg: #080510;
+      --bg-card: rgba(255,255,255,0.07);
+      --bg-card-hover: rgba(255,255,255,0.11);
+      --text: #FFFFFF;
+      --text-muted: #AAAAAA;
+      --accent: #AA32FF;
+      --accent-light: rgba(170,50,255,0.15);
+      --accent-mid: rgba(170,50,255,0.35);
+      --border: rgba(255,255,255,0.1);
+      --border-strong: rgba(255,255,255,0.2);
       --radius: 14px;
     }
 
@@ -28,7 +29,11 @@
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(180deg, rgba(170,50,255,0.4), transparent),
+        linear-gradient(315deg, rgba(255,50,120,0.25), transparent);
+      background-attachment: fixed;
       color: var(--text);
       font-size: 16px;
       line-height: 1.7;
@@ -42,7 +47,9 @@
       justify-content: space-between;
       padding: 1.25rem 2.5rem;
       border-bottom: 1px solid var(--border);
-      background: var(--bg);
+      background: rgba(8,5,16,0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
       z-index: 10;
@@ -68,8 +75,8 @@
     nav a.nav-link:hover { color: var(--text); }
 
     .nav-cta {
-      background: var(--text);
-      color: var(--bg) !important;
+      background: var(--accent);
+      color: #fff !important;
       padding: 9px 20px;
       border-radius: 99px;
       font-size: 14px;
@@ -148,7 +155,7 @@
 
     .btn-dark {
       background: var(--text);
-      color: var(--bg);
+      color: #080510;
       border: none;
       padding: 14px 30px;
       border-radius: 99px;
@@ -175,89 +182,23 @@
       transition: background 0.2s, transform 0.15s;
     }
 
-    .btn-outline:hover { background: rgba(26,24,20,0.05); transform: translateY(-1px); }
+    .btn-outline:hover { background: rgba(255,255,255,0.06); transform: translateY(-1px); }
 
-    /* MOCK TIMER */
-    .timer-mock {
-      margin: 4rem auto 0;
-      max-width: 320px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 2.5rem 2rem;
-      text-align: center;
-      animation: fadeUp 0.5s 0.4s ease both;
-      box-shadow: 0 2px 40px rgba(0,0,0,0.06);
-    }
-
-    .timer-label {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .timer-display {
-      font-family: 'DM Serif Display', serif;
-      font-size: 4.5rem;
-      color: var(--text);
-      letter-spacing: -0.04em;
-      line-height: 1;
-      margin-bottom: 1.5rem;
-    }
-
-    .timer-ring {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 1.5rem;
-    }
-
-    .timer-ring circle {
-      fill: none;
-      stroke-width: 4;
-      stroke-linecap: round;
-    }
-
-    .timer-ring .track { stroke: var(--accent-mid); }
-    .timer-ring .progress {
-      stroke: var(--accent);
-      stroke-dasharray: 220;
-      stroke-dashoffset: 55;
-      transform: rotate(-90deg);
-      transform-origin: center;
-      transition: stroke-dashoffset 1s linear;
-    }
-
-    .timer-actions { display: flex; justify-content: center; gap: 12px; }
-
-    .timer-btn {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid var(--border-strong);
-      background: transparent;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 18px;
-      color: var(--text);
-      transition: background 0.15s;
-    }
-
-    .timer-btn.primary {
+    .btn-accent {
       background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-      width: 56px;
-      height: 56px;
-      font-size: 22px;
+      color: #fff;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 99px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
     }
 
-    .timer-btn:hover { background: rgba(26,24,20,0.06); }
-    .timer-btn.primary:hover { opacity: 0.85; background: var(--accent); }
+    .btn-accent:hover { opacity: 0.85; transform: translateY(-1px); }
 
     /* SECTION DIVIDER */
     .divider {
@@ -307,7 +248,7 @@
       transition: background 0.2s;
     }
 
-    .feature:hover { background: var(--accent-light); }
+    .feature:hover { background: var(--bg-card-hover); }
 
     .feature-icon {
       font-size: 1.5rem;
@@ -469,7 +410,7 @@
     <a href="#features" class="nav-link">Features</a>
     <a href="#pricing" class="nav-link">Pricing</a>
     <a href="mailto:supportflowpilot@gmail.com" class="nav-link">Contact</a>
-    <a href="#" class="nav-cta">Download</a>
+    <a href="#" class="nav-cta" id="web-app-link">Web App</a>
   </div>
 </nav>
 
@@ -479,21 +420,8 @@
   <p>A smart, multi-platform timer app built for focus. Pomodoro, custom intervals, and session tracking — all in one place.</p>
   <div class="hero-cta">
     <a href="#" class="btn-dark">Download the app</a>
+    <a href="#" class="btn-accent" id="web-app-cta">Open Web App</a>
     <a href="#features" class="btn-outline">See features</a>
-  </div>
-
-  <div class="timer-mock" aria-label="Timer interface preview">
-    <div class="timer-label">Focus session</div>
-    <svg class="timer-ring" viewBox="0 0 80 80" aria-hidden="true">
-      <circle class="track" cx="40" cy="40" r="35" />
-      <circle class="progress" cx="40" cy="40" r="35" />
-    </svg>
-    <div class="timer-display" id="timer-display">24:35</div>
-    <div class="timer-actions">
-      <button class="timer-btn" aria-label="Reset">↺</button>
-      <button class="timer-btn primary" id="play-btn" aria-label="Pause">⏸</button>
-      <button class="timer-btn" aria-label="Skip">⏭</button>
-    </div>
   </div>
 </section>
 
@@ -557,6 +485,7 @@
         <li>Unlimited session history</li>
         <li>CSV export</li>
         <li>Advanced stats &amp; dashboard</li>
+        <li>Access to Web App</li>
       </ul>
     </div>
   </div>
@@ -572,36 +501,22 @@
 </footer>
 
 <script>
-  // Mini timer animation for the mock
-  let seconds = 24 * 60 + 35;
-  let running = true;
-  const display = document.getElementById('timer-display');
-  const playBtn = document.getElementById('play-btn');
-  const total = 25 * 60;
-  const progress = document.querySelector('.progress');
-  const circumference = 2 * Math.PI * 35;
+  const WEB_APP_URL = "https://tyra2291.github.io/FlowPilot_web/"
+  const APP_SCHEME  = "flowpilot://"
 
-  function updateDisplay() {
-    const m = Math.floor(seconds / 60).toString().padStart(2, '0');
-    const s = (seconds % 60).toString().padStart(2, '0');
-    display.textContent = m + ':' + s;
-    const ratio = seconds / total;
-    progress.style.strokeDashoffset = circumference * (1 - ratio);
+  function openWebApp(e) {
+    e.preventDefault()
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    if (isMobile) {
+      // Try to open the native app; if not installed the browser just stays here
+      window.location.href = APP_SCHEME
+    } else {
+      window.location.href = WEB_APP_URL
+    }
   }
 
-  setInterval(() => {
-    if (!running) return;
-    if (seconds > 0) seconds--;
-    updateDisplay();
-  }, 1000);
-
-  playBtn.addEventListener('click', () => {
-    running = !running;
-    playBtn.textContent = running ? '⏸' : '▶';
-    playBtn.setAttribute('aria-label', running ? 'Pause' : 'Play');
-  });
-
-  updateDisplay();
+  document.getElementById("web-app-link").addEventListener("click", openWebApp)
+  document.getElementById("web-app-cta").addEventListener("click", openWebApp)
 </script>
 </body>
 </html>
